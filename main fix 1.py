@@ -219,14 +219,12 @@ def count_total_grades():
 def display_course_summary():
     students = load_students()
 
-    all_courses = []
+    all_courses = set()
 
-    # Inefficient: builds a course list using repeated membership checks
-    for student in students:
-        for grade in student["grades"]:
-            if grade["course"] not in all_courses:
-                all_courses.append(grade["course"])
-
+for student in students:
+    for grade in student["grades"]:
+        all_courses.add(grade["course"])
+        
     print("Course summary:")
 
     # Inefficient: nested loops repeatedly scan all students and grades
