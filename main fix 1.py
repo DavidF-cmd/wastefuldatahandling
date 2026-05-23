@@ -204,15 +204,10 @@ def count_total_grades():
 
     total = 0
 
-    copied_students = []
-
-    for student in students:
-        copied_students.append(student)
-
-    for student in copied_students:
+      for student in students:
         for grade in student["grades"]:
             total += 1
-
+            
     print(f"Total number of grades: {total}")
 
 
