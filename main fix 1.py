@@ -188,9 +188,9 @@ def display_all_students():
 
     print("All students:")
 
-    for i in range(len(students)):
-        sorted_students = sorted(students, key=lambda student: student["name"])
-        student = sorted_students[i]
+    sorted_students = sorted(students, key=lambda student: student["name"])
+
+    for student in sorted_students:
 
         print(f"Student Number: {student['student_number']}")
         print(f"Name: {student['name']}")
@@ -243,9 +243,6 @@ def display_course_summary():
 
 def save_backup():
     students = load_students()
-
-    json_text = json.dumps(students)
-    copied_students = json.loads(json_text)
 
     with open("students_backup.json", "w") as file:
         json.dump(copied_students, file, indent=4)
