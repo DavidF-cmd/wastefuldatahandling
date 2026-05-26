@@ -153,8 +153,7 @@ def add_grade():
 
 
 def search_student():
-    student_number = input("Enter student number to search for: ")
-
+    student_number = int(input("Enter student number to search for: "))
     start_time = time.perf_counter()
 
     students = load_students()
